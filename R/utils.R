@@ -28,7 +28,7 @@ createL0TarAchive <- function(inputDir, outputPath) {
   inputDir <- fs::path_abs(inputDir)
   outputPath <- fs::path_abs(outputPath)
   print("=====")
-  print(inpurDir)
+  print(inputDir)
   print(outputPath)
   a <- archive::archive_write_dir(outputPath, inputDir, format = "tar", filter = "zstd")
   print(a)
