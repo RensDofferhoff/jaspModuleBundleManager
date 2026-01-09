@@ -129,7 +129,6 @@ repairJaspModuleBundleByManifest <- function(installPath, manifest, repoNames=c(
 createJaspModuleBundle <- function(moduleLib, resultdir = './', packageAll = TRUE, mustPackage=NULL, includeInManifest=NULL, repoNames=c('development')) {
   moduleName <- fs::path_file(moduleLib)
   stagingDir <- fs::dir_create("C:/stage/", moduleName)
-  on.exit(if(fs::dir_exists(stagingDir)) fs::dir_delete(stagingDir))
   tarDir <- fs::dir_create(stagingDir, 'tarDir')
   preCompressionBundleDir <- fs::dir_create(stagingDir, 'uncompressed')
 
