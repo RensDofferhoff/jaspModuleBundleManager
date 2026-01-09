@@ -27,8 +27,12 @@ getRemoteCellarURLs <- function(baseURLs, repoNames) {
 createL0TarAchive <- function(inputDir, outputPath) {
   inputDir <- fs::path_abs(inputDir)
   outputPath <- fs::path_abs(outputPath)
+  old_workdir <- setwd(inputDir)
+  on.exit(setwd(old_workdir)) #if error
   archive::archive_write_dir(outputPath, inputDir, format = "tar", filter = "zstd")
+  setwd(old_workdir)
 }
+
 
 extractL0TarAchive <- function(tarfile, exdir) {
   exdir <- fs::path_abs(exdir)
